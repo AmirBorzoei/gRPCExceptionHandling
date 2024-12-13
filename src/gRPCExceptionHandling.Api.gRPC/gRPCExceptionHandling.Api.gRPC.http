@@ -1,0 +1,6 @@
+@gRPCExceptionHandling.Api.gRPC_HostAddress = http://localhost:5076
+
+GET {{gRPCExceptionHandling.Api.gRPC_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
