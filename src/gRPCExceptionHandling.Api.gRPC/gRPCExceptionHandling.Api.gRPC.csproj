@@ -7,8 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.29.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.67.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.68.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\user.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include = "..\..\framework\Framework.Core\Framework.Core.csproj" />
+    <ProjectReference Include = "..\gRPCExceptionHandling.Domain\gRPCExceptionHandling.Domain.csproj" />
+    <ProjectReference Include = "..\gRPCExceptionHandling.ApplicationService\gRPCExceptionHandling.ApplicationService.csproj" />
+    <ProjectReference Include = "..\gRPCExceptionHandling.Repository.InMemory\gRPCExceptionHandling.Repository.InMemory.csproj" />
   </ItemGroup>
 
 </Project>

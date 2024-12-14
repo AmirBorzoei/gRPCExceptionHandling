@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPCExceptionHandling.Api.gRPC";
+
+package gRPCExceptionHandling;
+
+message UserGrpc {
+    string id = 1;
+    string firstName = 2;
+    string lastName = 3;
+    string nationalCode = 4;
+    string birthdate = 5;
+}
+
+message UserIdGrpc {
+    string id = 1;
+}
+
+message UserListGrpc {
+    repeated UserGrpc users = 1;
+}
+
+message EmptyGrpc {
+}
+
+service UserServiceGrpc {
+    rpc GetUser (UserIdGrpc) returns (UserGrpc);
+    rpc GetAllUsers (EmptyGrpc) returns (UserListGrpc);
+    rpc CreateUser (UserGrpc) returns (EmptyGrpc);
+    rpc UpdateUser (UserGrpc) returns (EmptyGrpc);
+    rpc DeleteUser (UserIdGrpc) returns (EmptyGrpc);
+}

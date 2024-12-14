@@ -4,10 +4,14 @@ namespace gRPCExceptionHandling.Domain.Users;
 
 public class User
 {
-    public User(Guid id, string nationalCode)
+    public User(Guid id, string nationalCode, string? firstName, string? lastName, DateOnly birthdate)
     {
         Id = id;
         SetNationalCode(nationalCode);
+
+        FirstName = firstName;
+        LastName = lastName;
+        Birthdate = birthdate;
     }
 
     public Guid Id { get; private set; }
